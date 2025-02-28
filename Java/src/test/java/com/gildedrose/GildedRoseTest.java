@@ -26,11 +26,11 @@ class GildedRoseTest {
 
     @ParameterizedTest
     @MethodSource("gildedRoseTestSource")
-    void SulfurasRemainsUnchanged(String name, int startingSellin, int startingQuality, int endSellin, int endQuality) {
-        Item sulfuras = new Item(name, startingSellin, startingQuality);
-        GildedRose app = new GildedRose(new Item[] { sulfuras });
+    void ItemsUpdateTheirValuesProperly(String name, int startingSellin, int startingQuality, int endSellin, int endQuality) {
+        Item item = new Item(name, startingSellin, startingQuality);
+        GildedRose app = new GildedRose(new Item[] { item });
         app.updateQuality();
-        assertEquals(endQuality, sulfuras.quality);
-        assertEquals(endSellin, sulfuras.sellIn);
+        assertEquals(endQuality, item.quality);
+        assertEquals(endSellin, item.sellIn);
     }
 }
